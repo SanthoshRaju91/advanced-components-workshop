@@ -1,15 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import UserContext from "../../context";
 
 const Name = props => (
-  <a className="name" href={props.url}>
-    {props.children}
-  </a>
-)
+  <UserContext.Consumer>
+    {function(context) {
+      return (
+        <a className="name" href={context.data.url}>
+          {context.data.name}
+        </a>
+      );
+    }}
+  </UserContext.Consumer>
+);
 
-Name.propTypes = {
-  url: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired
-}
-
-export default Name
+export default Name;

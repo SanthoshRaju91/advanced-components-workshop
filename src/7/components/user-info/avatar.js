@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import UserContext from "../../context";
 
-const Avatar = props => <img className="avatar" src={props.avatar} alt="avatar" />
+const Avatar = () => (
+  <UserContext.Consumer>
+    {function(context) {
+      return <img className="avatar" src={context.data.avatar} alt="avatar" />;
+    }}
+  </UserContext.Consumer>
+);
 
-Avatar.propTypes = {
-  avatar: PropTypes.string.isRequired
-}
-
-export default Avatar
+export default Avatar;

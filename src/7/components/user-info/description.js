@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import UserContext from "../../context";
 
-const Description = props => <div className="description">{props.children}</div>
+const Description = () => (
+  <UserContext.Consumer>
+    {function(context) {
+      return <div className="description">{context.data.description}</div>;
+    }}
+  </UserContext.Consumer>
+);
 
-Description.propTypes = {
-  children: PropTypes.string.isRequired
-}
-
-export default Description
+export default Description;
