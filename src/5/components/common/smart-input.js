@@ -1,24 +1,24 @@
-import React from 'react'
+import React from "react";
 
-function smartInput(Component) {
-  return class SmartComponent extends React.Component {
-    constructor() {
-      super()
-      this.state = { value: '' }
-    }
-    onChange = event => {
-      this.setState({ value: event.target.value })
-    }
-    render() {
-      return (
-        <Component
-          {...this.props}
-          SMART_onChange={this.onChange}
-          SMART_disabled={this.state.value.length < 3}
-        />
-      )
-    }
+class SmartComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ""
+    };
+  }
+
+  onChange = event => {
+    this.setState({
+      value: event.target.value
+    });
+  };
+
+  render() {
+    const disabled = this.state.value.length < 3;
+
+    return this.props.children(this.onChange, disabled);
   }
 }
 
-export default smartInput
+export default SmartComponent;
