@@ -2,15 +2,9 @@ import React from "react";
 import Logo from "../common/logo";
 
 class UserForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: ""
-    };
-  }
   onSubmit(event) {
     event.preventDefault();
-    this.props.onChange(this.state.inputValue);
+    this.props.onChange(event.target.username.value);
   }
   render() {
     return (
