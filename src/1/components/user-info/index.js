@@ -1,17 +1,15 @@
-import React from 'react'
-import Avatar from './avatar'
-import Description from './description'
-import Name from './name'
+import React from "react";
+import PropTypes from "prop-types";
+import Avatar from "./avatar";
+import Description from "./description";
+import Name from "./name";
 
 const UserInfo = props => (
   <div className="section user-info">
-    <Avatar avatar="https://avatars3.githubusercontent.com/u/69631?v=4" />
-    <Name url="https://github.com/facebook">Facebook</Name>
-    <Description>
-      We work hard to contribute our work back to the web, mobile, big data, &
-      infrastructure communities. NB: members must have two-factor auth.
-    </Description>
+    <Avatar avatar={props.data.avatar} />
+    <Name url={props.data.url}>{props.data.username}</Name>
+    <Description>{props.data.description}</Description>
   </div>
-)
+);
 
-export default UserInfo
+export default UserInfo;

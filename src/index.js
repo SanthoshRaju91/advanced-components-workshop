@@ -1,3 +1,3 @@
-import './style.css'
+import "./style.css";
 
-import './10'
+import "./2";
